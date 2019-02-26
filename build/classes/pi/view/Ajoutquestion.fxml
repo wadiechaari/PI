@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pi.controller.AjoutquestionController">
+   <children>
+   
+   <Pane layoutY="7.0" prefHeight="624.0" prefWidth="943.0">
+   <children>
+       
+      <TextField fx:id="tfSujet" layoutX="91.0" layoutY="86.0" prefHeight="34.0" prefWidth="271.0" style="-fx-border-color: rgb(192, 0, 0); -fx-background-insets: 0; -fx-border-radius: 20;" styleClass="bk" stylesheets="@style.css" />
+            <Label layoutX="43.0" layoutY="94.0" text="Sujet">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Separator layoutX="53.0" layoutY="586.0" opacity="0.97" prefHeight="3.0" prefWidth="709.0">
+               <padding>
+                  <Insets right="50.0" />
+               </padding></Separator>
+      <TextField fx:id="tfQuestion" layoutX="91.0" layoutY="140.0" prefHeight="34.0" prefWidth="271.0" style="-fx-border-color: rgb(192, 0, 0); -fx-background-insets: 0; -fx-border-radius: 20;" styleClass="bk" stylesheets="@style.css" />
+      <Button fx:id="btnAjouter" layoutX="553.0" layoutY="413.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: rgb(192, 0, 0);;" text="Ajouter question" textFill="WHITE" />
+      <Button fx:id="btnAnnuler" layoutX="762.0" layoutY="413.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: rgb(192, 0, 0);;" text="Annuler" textFill="WHITE" />
+      <Label layoutX="222.0" layoutY="32.0" text="Formulaire d'ajout d'un événement" textFill="#2d2d2d">
+               <font>
+                  <Font name="Courier New" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="148.0" text="Question">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            
+			
+            
+	</children>
+	</Pane>
+  </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+.head-background
+{
+    -fx-background-color: linear-gradient(to left,#710f0f ,#af1d1d,#a01717,#cd2122);
+    
+}
+.text-input
+{
+-fx-text-fill : black;
+}
+.radio-color
+{
+-fx-mark-highlight-color : #9643A9;
+-fx-mark-color : #CE201C;
+}
+.head_back_font
+{
+    
+}
+.textfield
+{
+    
+    -fx-border-color :  rgb(192, 0, 0);
+    
+    -fx-background-insets : 0;
+    
+        -fx-border-radius : 20;
+
+        
+    
+    
+}
+.bk
+{
+    -fx-background-color: #f5f5f5;
+}
+.barre
+{
+   -fx-background-color: #535353;
+}
