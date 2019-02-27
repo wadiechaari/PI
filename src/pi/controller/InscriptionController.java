@@ -6,6 +6,8 @@
 package pi.controller;
 
 
+import APIs.UploadAPI;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -13,6 +15,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -59,9 +64,28 @@ public class InscriptionController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private void ajouterPhotoAction(ActionEvent event) throws IOException {
+        File file = saveFileChooser.showOpenDialog(null);
+        String nameF = "";
+        try {
+            //-------
+            nameF = UploadAPI.upload(file);
+        } catch (Exception ex) {
+        }
+    }
+    
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+   
+        
+        
         
         btnAjouter.setOnAction((ActionEvent event) -> {
             Stage stage= new Stage();
@@ -78,10 +102,40 @@ public class InscriptionController implements Initializable {
                 
                 u.setUsername(tfUsername.getText());
                 u.setBirthdate(dat.toString());
-                u.setEmail(tfEmail.getText());
+                String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+                Pattern pattern = Pattern.compile(regex);
+                
+                Matcher matcher = pattern.matcher(tfEmail.getText());
+                //System.out.println(email +" : "+ matcher.matches());
+                if(!matcher.matches()){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Wrong Email format");
+                alert.setHeaderText("please use a proper email");
+                
+
+                alert.showAndWait();
+                    System.out.println("Wrong mail");
+                    return;
+                }
+                
+                
+               u.setEmail(tfEmail.getText());
                 u.setLastname(tfLastname.getText());
                 u.setName(tfName.getText());
+                String rege = "((?=.*[a-z])(?=.*d)(?=.*[@#$%])(?=.*[A-Z]).{6,16})";
+                 Pattern patter = Pattern.compile(rege);
+                 Matcher matche = patter.matcher(tfPassword.getText());
+                 if(!matche.matches()){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("wrong password formation");
+                alert.setHeaderText("password must but 6 to 16 characters");
+                
+
+                alert.showAndWait();
+                    return;
+                }
                 u.setPassword(tfPassword.getText());
+                
                 u.setProfile_pic(tfProf.getText());
                 u.setTel(tfTell.getText());
                 

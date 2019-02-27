@@ -19,6 +19,7 @@ import pi.entities.Question;
 import pi.entities.User;
 import pi.service.QaService;
 import pi.service.UserService;
+import pi.utils.Controller;
 
 /**
  * FXML Controller class
@@ -27,6 +28,7 @@ import pi.service.UserService;
  */
 public class AjoutquestionController implements Initializable {
 
+    
     @FXML
     private Button btnAjouter;
     @FXML
@@ -50,7 +52,8 @@ public class AjoutquestionController implements Initializable {
                 Question question = new Question();
                 question.setQuestion(tfQuestion.getText());
                 question.setType(tfSujet.getText());
-                question.setId_user(1);
+                question.setId_user(Controller.getUserId());
+              
                 qs.addQuestion(question);
             } catch (IOException ex) {
                 Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
